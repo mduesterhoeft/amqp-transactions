@@ -3,6 +3,7 @@ package com.epages.util;
 import java.util.Date;
 import java.util.UUID;
 
+import com.epages.EventSubscriberConfiguration;
 import com.rabbitmq.client.AMQP.BasicProperties;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
@@ -13,7 +14,7 @@ import lombok.SneakyThrows;
 
 public class MessageSender {
 
-    private static final String EXCHANGE_NAME = "test.exchange";
+    private static final String EXCHANGE_NAME = EventSubscriberConfiguration.EXCHANGE_NAME;
 
     @SneakyThrows
     public void sendMessage(String name) {

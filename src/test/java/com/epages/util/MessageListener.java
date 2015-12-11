@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeoutException;
 
+import com.epages.EventSubscriberConfiguration;
 import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
@@ -17,8 +18,8 @@ import lombok.SneakyThrows;
 
 public class MessageListener {
 
-    static String EXCHANGE_NAME = "test.exchange";
-    static String QUEUE_NAME = "testQueue";
+    static String EXCHANGE_NAME = EventSubscriberConfiguration.EXCHANGE_NAME;
+    static String QUEUE_NAME = "MessageListenerTest";
 
     private List<String> messagesReceived = new ArrayList<>();
     private Channel channel;

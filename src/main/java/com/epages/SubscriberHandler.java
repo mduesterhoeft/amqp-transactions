@@ -10,7 +10,6 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class SubscriberHandler {
 
-
     private final ShopService shopService;
 
     @Autowired
@@ -20,6 +19,7 @@ public class SubscriberHandler {
 
     @Transactional
     public void handleMessage(EventPayload event) {
+        log.info("handleMessage {}", event);
         Shop shop = new Shop();
         shop.setName(event.getName());
 

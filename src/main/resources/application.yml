@@ -5,8 +5,17 @@ spring:
   jpa:
      generate-ddl: true
      show-sql: true
+
+  devtools:
+    livereload:
+      enabled: true
+server:
+  port: 0
+
 logging:
   level:
-    com.rabbitmq: 'DEBUG'
-    org.springframework.amqp: 'DEBUG'
+    com.rabbitmq: 'ERROR'
+    org.springframework.amqp: 'ERROR'
+    org.hibernate: 'OFF'
+    com.epages.SubscriberHandler: 'INFO'
     org.springframework.amqp.rabbit.listener.BlockingQueueConsumer: 'INFO'

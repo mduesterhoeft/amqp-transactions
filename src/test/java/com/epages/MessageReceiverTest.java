@@ -40,6 +40,17 @@ public class MessageReceiverTest {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void should_send_message_only() {
+        String name = "test_me1122";
+        for (int i = 0; i < 10; i++) {
+            String currentName = name + i;
+            messageSender.sendMessage(currentName);
+        }
+
+    }
+
     @Test
     public void should_send_message() {
 
