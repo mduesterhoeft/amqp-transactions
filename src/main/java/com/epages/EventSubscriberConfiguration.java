@@ -116,7 +116,7 @@ public class EventSubscriberConfiguration {
         return RetryInterceptorBuilder.stateful()
                 .maxAttempts(5)
                 .recoverer(new RejectAndDontRequeueRecoverer())
-                .backOffOptions(1000, 10, 10000)
+                //.backOffOptions(1000, 5, 10000)
                 .build();
     }
 }

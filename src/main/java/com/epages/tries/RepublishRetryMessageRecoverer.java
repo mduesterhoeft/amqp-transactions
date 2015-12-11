@@ -1,4 +1,4 @@
-package com.epages;
+package com.epages.tries;
 
 import static org.springframework.amqp.rabbit.retry.RepublishMessageRecoverer.X_ORIGINAL_EXCHANGE;
 import static org.springframework.amqp.rabbit.retry.RepublishMessageRecoverer.X_ORIGINAL_ROUTING_KEY;

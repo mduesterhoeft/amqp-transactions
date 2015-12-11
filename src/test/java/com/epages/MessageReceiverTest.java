@@ -44,8 +44,9 @@ public class MessageReceiverTest {
     @Test
     public void should_send_message_only() {
         String name = "test_me1122";
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 100; i++) {
             String currentName = name + i;
+            messageSender.sendMessage(currentName);
             messageSender.sendMessage(currentName);
         }
 
