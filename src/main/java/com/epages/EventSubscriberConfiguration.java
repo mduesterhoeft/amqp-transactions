@@ -38,6 +38,7 @@ public class EventSubscriberConfiguration {
     private static final boolean DURABLE = true;
     private static final boolean AUTO_DELETE = false;
     private static final boolean EXCLUSIVE = false;
+
     @Bean
     @Primary
     TopicExchange exchange() {

@@ -13,8 +13,8 @@ import com.rabbitmq.client.Envelope;
 
 public class QueueViewer {
 
-    static String EXCHANGE_NAME = "test.exchange";
-    static String QUEUE_NAME = "testQueueViewer";
+    static String EXCHANGE_NAME = "vertical.exchange.dlx";
+    static String QUEUE_NAME = "viewer.queue.dlq";
 
     public static void main(String[] args) throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
@@ -24,7 +24,7 @@ public class QueueViewer {
 
         channel.exchangeDeclare(EXCHANGE_NAME, "topic", true);
         channel.queueDeclare(QUEUE_NAME, false, false, false, null);
-        channel.queueBind(QUEUE_NAME, EXCHANGE_NAME, "payload.create");
+        channel.queueBind(QUEUE_NAME, EXCHANGE_NAME, "payload.*");
         System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
 
         Consumer consumer = new DefaultConsumer(channel) {
@@ -32,7 +32,7 @@ public class QueueViewer {
             public void handleDelivery(String consumerTag, Envelope envelope,
                                        AMQP.BasicProperties properties, byte[] body) throws IOException {
                 String message = new String(body, "UTF-8");
-                System.out.println(" [x] Received '" + message + "'");
+                System.out.println(" [x] Received message - envelope: " +  envelope + " message : '" + message + "'");
             }
         };
         channel.basicConsume(QUEUE_NAME, true, consumer);

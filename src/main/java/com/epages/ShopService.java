@@ -1,14 +1,13 @@
 package com.epages;
 
-import static org.springframework.transaction.annotation.Propagation.REQUIRED;
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-@Transactional(propagation = REQUIRED)
+@Transactional(propagation = Propagation.REQUIRED)
 @Component
 public class ShopService {
 

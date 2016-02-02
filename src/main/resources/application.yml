@@ -14,8 +14,11 @@ server:
 
 logging:
   level:
-    com.rabbitmq: 'ERROR'
-    org.springframework.amqp: 'ERROR'
+    com.rabbitmq: 'INFO'
+    org.springframework.amqp: 'INFO'
     org.hibernate: 'OFF'
     com.epages.SubscriberHandler: 'INFO'
     org.springframework.amqp.rabbit.listener.BlockingQueueConsumer: 'INFO'
+    org.springframework.amqp.rabbit.transaction.RabbitTransactionManager: 'DEBUG'
+    org.springframework.transaction.support.TransactionSynchronizationManager: 'TRACE'
+    org.springframework.amqp.rabbit.connection.RabbitResourceHolder: 'TRACE'
